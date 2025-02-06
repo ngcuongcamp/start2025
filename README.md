@@ -86,3 +86,88 @@ ListTile(
 + `tileColor`: màu nền của `ListTile` 
 + `onTap`: hàm gọi sự kiện nhấn vào `ListTile` 
 + `onLongPress`: hàm gọi khi giữ lâu vào `ListTile`
+
+
+
+#### `Checkbox, TextFiled, CheckboxTile `
+```
+
+import 'package:flutter/material.dart';
+
+class ProfilePage extends StatefulWidget {
+  const ProfilePage({super.key});
+
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  TextEditingController controller = TextEditingController();
+  bool? isChecked = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          TextField(
+            controller: controller,
+            decoration: InputDecoration(border: OutlineInputBorder()),
+            onChanged: (value) {
+              setState(() {
+                controller.text = value;
+              });
+            },
+          ),
+          Text(controller.text),
+          Checkbox(
+              value: isChecked,
+              onChanged: (bool? value) {
+                setState(() {
+                  isChecked = value;
+                });
+              }),
+          CheckboxListTile(
+              tristate: true,
+              title: Text('Click me'),
+              value: isChecked,
+              onChanged: (bool? value) {
+                setState(() {
+                  isChecked = value;
+                });
+              }),
+          Switch(
+              value: isSwitch,
+              onChanged: (bool value) {
+                setState(() {
+                  isSwitch = value;
+                });
+              })
+        ],
+      ),
+    );
+  }
+}
+
+```
+
+#### `SingleChildScrollView`
+
+
+#### `Navigator.push` 
+```
+onPressed: () {
+  Navigator.push(context, MaterialPageRoute(
+    builder: (context) {
+      return SettingsPage();
+    },
+  ));
+}
+
+```
+- dùng để chuyển sang một màn hình mới (route)
+- `context`: đối tượng `BuildContext` giúp xác định được vị trí của widget trong cây widget 
+- `MaterialPageRoute`: một loại `route`, dùng để chuyển sang một màn hình mới với hiệu ứng chuyển trang mặc định của Material Design 
+- `builder`: một hàm trả về widget của màn hình, trong trường hợp này, nó trả về một instance của `SettingsPage`

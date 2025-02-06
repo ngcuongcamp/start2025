@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:start2025/data/notifiers.dart';
+import 'package:start2025/views/pages/welcome_page.dart';
 import 'package:start2025/views/widget_tree.dart';
 
 void main() {
@@ -16,24 +17,18 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
-        valueListenable: stateTheme,
-        builder: (context, stateTheme, child) {
+        valueListenable: isDarkModeNotifier,
+        builder: (context, isDarkMode, child) {
           return MaterialApp(
               debugShowCheckedModeBanner: false,
-              theme: (stateTheme == 0
-                  ? ThemeData(
-                      colorScheme: ColorScheme.fromSeed(
-                        seedColor: Colors.teal,
-                        brightness: Brightness.dark,
-                      ),
-                    )
-                  : ThemeData(
-                      colorScheme: ColorScheme.fromSeed(
-                        seedColor: Colors.teal,
-                        brightness: Brightness.light,
-                      ),
-                    )),
-              home: WidgetTree());
+              theme: ThemeData(
+                colorScheme: ColorScheme.fromSeed(
+                  seedColor: Colors.teal,
+                  brightness: (isDarkMode ? Brightness.dark : Brightness.light),
+                ),
+              ),
+              // home: WidgetTree());
+              home: WelcomePage());
         });
   }
 }

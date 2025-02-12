@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:start2025/data/constants.dart';
 import 'package:start2025/data/notifiers.dart';
 import 'package:start2025/views/pages/welcome_page.dart';
 import 'package:start2025/views/widget_tree.dart';
+import 'package:shared_preferences_android/shared_preferences_android.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,6 +17,18 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    initThemeMode();
+    super.initState();
+  }
+
+  void initThemeMode() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final bool? themeModeKey = prefs.getBool(KConstants.themeModeKey);
+  }
+
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
@@ -32,4 +47,5 @@ class _MyAppState extends State<MyApp> {
         });
   }
 }
-3:18
+
+3:25

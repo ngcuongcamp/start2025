@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:start2025/views/widget_tree.dart';
 import 'package:start2025/views/widgets/hero_widget.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key, required this.title});
@@ -29,20 +30,6 @@ class _LoginPageState extends State<LoginPage> {
     controllerEmail.dispose();
     controllerPassword.dispose();
     super.dispose();
-  }
-
-  void onLoginPressed() {
-    // ignore: unrelated_type_equality_checks
-    if (confirmedEmail == controllerEmail.value.text &&
-        // ignore: unrelated_type_equality_checks
-        confirmedPassword == controllerPassword.value.text) {
-      Navigator.pushAndRemoveUntil(context,
-          MaterialPageRoute(builder: (context) {
-        return WidgetTree();
-      }), (route) => false);
-    } else {
-      print('Your email or password is wrong, please try again');
-    }
   }
 
   @override
@@ -118,5 +105,19 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+  void onLoginPressed() {
+    // ignore: unrelated_type_equality_checks
+    if (confirmedEmail == controllerEmail.value.text &&
+        // ignore: unrelated_type_equality_checks
+        confirmedPassword == controllerPassword.value.text) {
+      Navigator.pushAndRemoveUntil(context,
+          MaterialPageRoute(builder: (context) {
+        return WidgetTree();
+      }), (route) => false);
+    } else {
+      print('Your email or password is wrong, please try again');
+    }
   }
 }

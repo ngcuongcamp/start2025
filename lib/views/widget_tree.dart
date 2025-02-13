@@ -34,7 +34,13 @@ class WidgetTree extends StatelessWidget {
             onPressed: () async {
               final SharedPreferences prefs =
                   await SharedPreferences.getInstance();
-              await prefs.setBool(KConstants.themeModeKey, true);
+              final bool? repeat = prefs.getBool(KConstants.themeModeKey);
+
+              if ((repeat == true || repeat == false) && repeat != null) {
+                await prefs.setBool(KConstants.themeModeKey, !repeat);
+              } else {
+                await prefs.setBool(KConstants.themeModeKey, true);
+              }
               isDarkModeNotifier.value = !isDarkModeNotifier.value;
             },
           ),

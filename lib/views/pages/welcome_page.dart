@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:start2025/views/pages/login_page.dart';
+import 'package:start2025/views/pages/onboarding.dart';
+import 'package:start2025/views/pages/register_page.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -17,6 +19,7 @@ class WelcomePage extends StatelessWidget {
               // mainAxisSize: MainAxisSize.min,
               children: [
                 Lottie.asset('assets/lotties/home_lotties.json', height: 350.0),
+
                 // HeroWidget(),
                 SizedBox(height: 20),
                 FittedBox(
@@ -38,7 +41,7 @@ class WelcomePage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
-                      return LoginPage(title: "Login");
+                      return OnboardingPage();
                     }));
                   },
                 ),

@@ -3,7 +3,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:start2025/data/constants.dart';
 import 'package:start2025/data/notifiers.dart';
 import 'package:start2025/views/pages/welcome_page.dart';
+// ignore: unused_import
 import 'package:start2025/views/widget_tree.dart';
+// ignore: unused_import
 import 'package:shared_preferences_android/shared_preferences_android.dart';
 
 void main() {
@@ -26,7 +28,8 @@ class _MyAppState extends State<MyApp> {
 
   void initThemeMode() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    final bool? themeModeKey = prefs.getBool(KConstants.themeModeKey);
+    final bool? repeate = prefs.getBool(KConstants.themeModeKey);
+    isDarkModeNotifier.value = repeate ?? false;
   }
 
   @override
@@ -48,4 +51,6 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-3:25
+
+
+3:34

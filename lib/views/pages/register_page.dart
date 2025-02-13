@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:start2025/views/widget_tree.dart';
 // ignore: unused_import
 import 'package:start2025/views/widgets/hero_widget.dart';
 // ignore: unused_import
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:lottie/lottie.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key, required this.title});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key, required this.title});
 
   final String title;
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   TextEditingController controllerEmail =
       new TextEditingController(text: "123");
   TextEditingController controllerPassword =
@@ -74,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
                   },
                 ),
                 SizedBox(height: 10),
-                ElevatedButton(
+                FilledButton(
                   style: ElevatedButton.styleFrom(
                     minimumSize: Size(double.infinity, 45.0),
                     shape: RoundedRectangleBorder(
@@ -82,9 +82,9 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   onPressed: () {
-                    onLoginPressed();
+                    onRegisterPressed();
                   },
-                  child: Text('Login'),
+                  child: Text('Register'),
                 ),
                 SizedBox(height: 50),
               ],
@@ -95,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  void onLoginPressed() {
+  void onRegisterPressed() {
     // ignore: unrelated_type_equality_checks
     if (confirmedEmail == controllerEmail.value.text &&
         // ignore: unrelated_type_equality_checks

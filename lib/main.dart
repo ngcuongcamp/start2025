@@ -3,9 +3,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:start2025/data/constants.dart';
 import 'package:start2025/data/notifiers.dart';
 import 'package:start2025/views/pages/welcome_page.dart';
-// ignore: unused_import
-import 'package:start2025/views/widget_tree.dart';
-// ignore: unused_import
 
 void main() {
   runApp(const MyApp());

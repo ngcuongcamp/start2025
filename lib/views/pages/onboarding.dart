@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:start2025/views/pages/login_page.dart';
+
+import '../../data/constants.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});
@@ -14,18 +17,34 @@ class OnboardingPage extends StatelessWidget {
             padding: const EdgeInsets.only(left: 20, right: 20),
             child: Column(
               children: [
-                Lottie.asset('assets/lotties/home_animation_image.json',
-                    height: 350.0),
+                Lottie.asset('assets/lotties/welcome.json', height: 350.0),
+                Text(
+                  'Flutter Mapp Mapp  is the way to learn Flutter, preried.',
+                  style: KTextStyle.descriptionText,
+                  textAlign: TextAlign.justify,
+                ),
                 SizedBox(height: 10),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
+                FilledButton(
+                  style: FilledButton.styleFrom(
                     minimumSize: Size(double.infinity, 45.0),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(14),
                     ),
                   ),
-                  onPressed: () {},
-                  child: Text('Register'),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return LoginPage(title: 'Register');
+                        },
+                      ),
+                    );
+                  },
+                  child: Text(
+                    'Next',
+                    style: TextStyle(letterSpacing: 1),
+                  ),
                 ),
                 SizedBox(height: 50),
               ],

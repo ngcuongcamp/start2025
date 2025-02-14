@@ -75,7 +75,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   endIndent: 100.0,
                   color: Colors.teal,
                 ),
-                Container(
+                SizedBox(
                   height: 50.0,
                   child: VerticalDivider(),
                 ),
@@ -158,6 +158,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
                 InkWell(
                   onTap: () {
+                    // ignore: avoid_print
                     print('Image tapped');
                   },
                   child: Container(

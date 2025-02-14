@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:start2025/views/pages/login_page.dart';
 import 'package:start2025/views/pages/onboarding.dart';
-import 'package:start2025/views/pages/register_page.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -18,10 +17,8 @@ class WelcomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               // mainAxisSize: MainAxisSize.min,
               children: [
-                Lottie.asset('assets/lotties/home_lotties.json', height: 350.0),
-
-                // HeroWidget(),
-                SizedBox(height: 20),
+                Lottie.asset('assets/lotties/home_animation_image.json',
+                    height: 250.0),
                 FittedBox(
                   child: Text(
                     "Flutter Mapp",
@@ -32,9 +29,10 @@ class WelcomePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 40),
+
+                // register
                 FilledButton(
-                  child: Text('Get Started'),
                   style: FilledButton.styleFrom(
                     minimumSize: Size(double.infinity, 45.0),
                   ),
@@ -44,8 +42,10 @@ class WelcomePage extends StatelessWidget {
                       return OnboardingPage();
                     }));
                   },
+                  child: Text('Get Started'),
                 ),
                 SizedBox(height: 10),
+                // login
                 TextButton(
                   onPressed: () {
                     Navigator.push(context,
@@ -53,10 +53,10 @@ class WelcomePage extends StatelessWidget {
                       return LoginPage(title: "Login");
                     }));
                   },
-                  child: Text('Login'),
                   style: FilledButton.styleFrom(
                     minimumSize: Size(double.infinity, 45.0),
                   ),
+                  child: Text('Login'),
                 )
               ],
             ),

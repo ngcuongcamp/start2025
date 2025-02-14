@@ -15,16 +15,13 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  TextEditingController controllerEmail =
-      new TextEditingController(text: "123");
-  TextEditingController controllerPassword =
-      new TextEditingController(text: "456");
+  TextEditingController controllerEmail = TextEditingController(text: "123");
+  TextEditingController controllerPassword = TextEditingController(text: "456");
 
   String confirmedEmail = "123";
   String confirmedPassword = "456";
   @override
   void initState() {
-    print('init state');
     super.initState();
   }
 
@@ -74,8 +71,8 @@ class _LoginPageState extends State<LoginPage> {
                   },
                 ),
                 SizedBox(height: 10),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
+                FilledButton(
+                  style: FilledButton.styleFrom(
                     minimumSize: Size(double.infinity, 45.0),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(14),
@@ -84,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                   onPressed: () {
                     onLoginPressed();
                   },
-                  child: Text('Login'),
+                  child: Text(widget.title),
                 ),
                 SizedBox(height: 50),
               ],
@@ -104,8 +101,6 @@ class _LoginPageState extends State<LoginPage> {
           MaterialPageRoute(builder: (context) {
         return WidgetTree();
       }), (route) => false);
-    } else {
-      print('Your email or password is wrong, please try again');
-    }
+    } else {}
   }
 }

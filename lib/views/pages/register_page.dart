@@ -15,16 +15,13 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  TextEditingController controllerEmail =
-      new TextEditingController(text: "123");
-  TextEditingController controllerPassword =
-      new TextEditingController(text: "456");
+  TextEditingController controllerEmail = TextEditingController(text: "123");
+  TextEditingController controllerPassword = TextEditingController(text: "456");
 
   String confirmedEmail = "123";
   String confirmedPassword = "456";
   @override
   void initState() {
-    print('init state');
     super.initState();
   }
 
@@ -105,6 +102,7 @@ class _RegisterPageState extends State<RegisterPage> {
         return WidgetTree();
       }), (route) => false);
     } else {
+      // ignore: avoid_print
       print('Your email or password is wrong, please try again');
     }
   }

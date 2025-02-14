@@ -6,7 +6,6 @@ import 'package:start2025/views/pages/welcome_page.dart';
 // ignore: unused_import
 import 'package:start2025/views/widget_tree.dart';
 // ignore: unused_import
-import 'package:shared_preferences_android/shared_preferences_android.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +20,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   void initState() {
-    // TODO: implement initState
     initThemeMode();
     super.initState();
   }
@@ -50,7 +48,3 @@ class _MyAppState extends State<MyApp> {
         });
   }
 }
-
-
-
-3:34

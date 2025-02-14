@@ -6,7 +6,6 @@ import 'package:start2025/views/pages/home_page.dart';
 import 'package:start2025/views/pages/profile_page.dart';
 import 'package:start2025/views/widgets/navbar_widget.dart';
 import 'package:start2025/views/pages/settings_page.dart';
-import 'package:shared_preferences_android/shared_preferences_android.dart';
 
 List<Widget> pages = [
   HomePage(),

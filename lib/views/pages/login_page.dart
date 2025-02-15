@@ -39,54 +39,60 @@ class _LoginPageState extends State<LoginPage> {
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20),
-            child: Column(
-              children: [
-                Lottie.asset('assets/lotties/home_animation_image.json',
-                    height: 350.0),
-                TextFormField(
-                  controller: controllerEmail,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    labelText: "Email",
+              padding: const EdgeInsets.all(20.0),
+              child:
+                  LayoutBuilder(builder: (context, BoxConstraints constraints) {
+                print(constraints.maxWidth);
+                return FractionallySizedBox(
+                  widthFactor: constraints.maxWidth > 500 ? 1.3 : 1.0,
+                  child: Column(
+                    children: [
+                      Lottie.asset('assets/lotties/home_animation_image.json',
+                          height: 350.0),
+                      TextFormField(
+                        controller: controllerEmail,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          labelText: "Email",
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      TextField(
+                        obscureText: true,
+                        controller: controllerPassword,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          labelText: "Password",
+                          // hintText: "Email",
+                        ),
+                        onChanged: (value) {
+                          setState(() {
+                            controllerPassword.text = value;
+                          });
+                        },
+                      ),
+                      SizedBox(height: 10),
+                      FilledButton(
+                        style: FilledButton.styleFrom(
+                          minimumSize: Size(double.infinity, 45.0),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(14),
+                          ),
+                        ),
+                        onPressed: () {
+                          onLoginPressed();
+                        },
+                        child: Text(widget.title),
+                      ),
+                      SizedBox(height: 50),
+                    ],
                   ),
-                ),
-                SizedBox(height: 10),
-                TextField(
-                  obscureText: true,
-                  controller: controllerPassword,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    labelText: "Password",
-                    // hintText: "Email",
-                  ),
-                  onChanged: (value) {
-                    setState(() {
-                      controllerPassword.text = value;
-                    });
-                  },
-                ),
-                SizedBox(height: 10),
-                FilledButton(
-                  style: FilledButton.styleFrom(
-                    minimumSize: Size(double.infinity, 45.0),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(14),
-                    ),
-                  ),
-                  onPressed: () {
-                    onLoginPressed();
-                  },
-                  child: Text(widget.title),
-                ),
-                SizedBox(height: 50),
-              ],
-            ),
-          ),
+                );
+              })),
         ),
       ),
     );

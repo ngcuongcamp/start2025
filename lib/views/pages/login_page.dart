@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+// ignore: unused_import
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:start2025/views/widget_tree.dart';
 // ignore: unused_import
 import 'package:start2025/views/widgets/hero_widget.dart';
-// ignore: unused_import
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:lottie/lottie.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key, required this.title});
-
   final String title;
+
+  const LoginPage({super.key, required this.title});
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
@@ -21,19 +21,9 @@ class _LoginPageState extends State<LoginPage> {
   String confirmedEmail = "123";
   String confirmedPassword = "456";
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    controllerEmail.dispose();
-    controllerPassword.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    // double widthScreen = MediaQuery.of(context).size.width;
+    // double heightScreen = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(),
       body: Center(
@@ -42,7 +32,8 @@ class _LoginPageState extends State<LoginPage> {
               padding: const EdgeInsets.all(20.0),
               child:
                   LayoutBuilder(builder: (context, BoxConstraints constraints) {
-                print(constraints.maxWidth);
+                // nếu không có giá trị minWidth, minHeight thì minWidth, minHeight mặc định là 0
+                // nếu không có giá trị maxWidth, maxHeight thì mặc định là `double.infinity`
                 return FractionallySizedBox(
                   widthFactor: constraints.maxWidth > 500 ? 1.3 : 1.0,
                   child: Column(
@@ -96,6 +87,18 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    controllerEmail.dispose();
+    controllerPassword.dispose();
+    super.dispose();
+  }
+
+  @override
+  void initState() {
+    super.initState();
   }
 
   void onLoginPressed() {

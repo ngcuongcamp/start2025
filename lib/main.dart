@@ -16,18 +16,6 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   @override
-  void initState() {
-    initThemeMode();
-    super.initState();
-  }
-
-  void initThemeMode() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    final bool? repeate = prefs.getBool(KConstants.themeModeKey);
-    isDarkModeNotifier.value = repeate ?? false;
-  }
-
-  @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
         valueListenable: isDarkModeNotifier,
@@ -43,5 +31,17 @@ class _MyAppState extends State<MyApp> {
               // home: WidgetTree());
               home: WelcomePage());
         });
+  }
+
+  @override
+  void initState() {
+    initThemeMode();
+    super.initState();
+  }
+
+  void initThemeMode() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final bool? repeate = prefs.getBool(KConstants.themeModeKey);
+    isDarkModeNotifier.value = repeate ?? false;
   }
 }

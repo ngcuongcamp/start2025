@@ -171,3 +171,12 @@ onPressed: () {
 - `context`: đối tượng `BuildContext` giúp xác định được vị trí của widget trong cây widget 
 - `MaterialPageRoute`: một loại `route`, dùng để chuyển sang một màn hình mới với hiệu ứng chuyển trang mặc định của Material Design 
 - `builder`: một hàm trả về widget của màn hình, trong trường hợp này, nó trả về một instance của `SettingsPage`
+
+
+
+
+```
+ LayoutBuilder(builder: (context, BoxConstraints constraints) {
+                // nếu không có giá trị minWidth, minHeight thì minWidth, minHeight mặc định là 0
+                // nếu không có giá trị maxWidth, maxHeight thì mặc định là `double.infinity`
+```

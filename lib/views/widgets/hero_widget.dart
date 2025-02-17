@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class HeroWidget extends StatelessWidget {
+  final String title;
+
+  final Widget? nextPage;
   const HeroWidget({
     super.key,
     required this.title,
     this.nextPage,
   });
-
-  final String title;
-  final Widget? nextPage;
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +25,15 @@ class HeroWidget extends StatelessWidget {
         children: [
           Hero(
             tag: 'hero1',
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(10.0),
-              child: Image.asset('assets/images/flutter_thumbnail.png',
-                  colorBlendMode: BlendMode.darken, color: Colors.teal),
+            child: AspectRatio(
+              aspectRatio: 1920 / 1000,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10.0),
+                child: Image.asset('assets/images/flutter_thumbnail.png',
+                    colorBlendMode: BlendMode.darken,
+                    color: Colors.teal,
+                    fit: BoxFit.cover),
+              ),
             ),
           ),
           FittedBox(

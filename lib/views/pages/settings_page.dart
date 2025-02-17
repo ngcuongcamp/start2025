@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:start2025/views/pages/expanded_flexible_page.dart';
+import 'package:start2025/views/pages/login_page.dart';
 
 class SettingsPage extends StatefulWidget {
   final String title;
@@ -167,9 +169,14 @@ class _SettingsPageState extends State<SettingsPage> {
                     color: Colors.white12,
                   ),
                 ),
-                FilledButton(
-                  onPressed: () {},
-                  child: Text('Click here!'),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return ExpandedFlexiblePage();
+                    }));
+                  },
+                  child: Text('Show Flexible and Expanded'),
                 ),
                 TextButton(
                   onPressed: () {},
